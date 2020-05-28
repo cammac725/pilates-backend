@@ -10,3 +10,15 @@ module.exports = {
 function getUsers() {
   return db("users")
 }
+
+function getById(id) {
+  return db("users/:id")
+}
+
+function update() {
+
+}
+
+function remove() {
+  
+}

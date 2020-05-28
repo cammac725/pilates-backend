@@ -1,9 +1,9 @@
-const router = require(express).Router();
+const router = require("express").Router();
 
 const Users = require('./usersModel');
 
 router.get('/all', (req, res) => {
-  Router.getUsers()
+  Users.getUsers()
     .then(users => {
       res.status(200).json(users)
     })
