@@ -13,3 +13,5 @@ router.get('/all', (req, res) => {
         .json({ err: "Cannot retrieve users from database." })
     })
 })
+
+module.exports = router;
