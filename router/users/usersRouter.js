@@ -10,7 +10,7 @@ router.get('/all', (req, res) => {
     .catch(err => {
       res
         .status(500)
-        .json({ err: "Cannot retrieve users from database." })
+        .json({ message: "Cannot retrieve users from database." })
     })
 })
 
