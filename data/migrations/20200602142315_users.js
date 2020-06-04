@@ -9,7 +9,9 @@ exports.up = function(knex) {
       .notNullable();
     table.string('email', 255)
       .notNullable()
-      .unique()
+    table.string('username', 255)
+      .notNullable()
+      .unique();
     table.string('password', 255)
       .notNullable()
   });

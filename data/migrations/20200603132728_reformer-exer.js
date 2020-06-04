@@ -8,14 +8,7 @@ exports.up = function(knex) {
       .unique();
     table.string('level', 5)
       .notNullable();
-    table.boolean('assigned');
 
-    table.integer('user_id')
-      .unsigned()
-      .references('id')
-      .inTable('users')
-      .onDelete('CASCADE')
-      .onUpdate('CASCADE')
   });
 };
 
