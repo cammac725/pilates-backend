@@ -6,7 +6,7 @@ exports.up = function(knex) {
     table.string('name', 255)
       .notNullable()
       .unique();
-    table.string('level', 5)
+    table.string('level', 10)
       .notNullable();
 
   });
