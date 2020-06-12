@@ -1,10 +1,10 @@
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('reformer-exers').del()
     .then(function () {
       // Inserts seed entries
-      return knex('table_name').insert([
+      return knex('reformer-exers').insert([
         {
           name: 'Footwork',
           level: 'b',
