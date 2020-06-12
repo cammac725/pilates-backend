@@ -11,9 +11,16 @@ exports.up = function(knex) {
       .notNullable()
     table.string('username', 255)
       .notNullable()
-      .unique();
+      .unique()
     table.string('password', 255)
       .notNullable()
+    table.date('DOB')
+    table.date('date')
+    table.text('occupation', 1000)
+    table.text('medical', 1000)
+    table.text('goals', 1000)
+    table.text('assessment', 1000)
+    table.text('additional') 
   });
 };
 
