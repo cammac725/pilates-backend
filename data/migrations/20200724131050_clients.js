@@ -1,5 +1,4 @@
-
-exports.up = function(knex) {
+exports.up = function (knex) {
   return knex.schema.createTable('clients', table => {
     table.increments();
 
@@ -9,17 +8,17 @@ exports.up = function(knex) {
       .notNullable();
     table.string('email', 255)
       .notNullable()
-    
+
     table.date('DOB')
     table.date('date')
     table.text('occupation', 1000)
     table.text('medical', 1000)
     table.text('goals', 1000)
     table.text('assessment', 1000)
-    table.text('additional') 
+    table.text('additional')
   });
 };
 
-exports.down = function(knex) {
+exports.down = function (knex) {
   return knex.schema.dropTableIfExists('clients');
 };

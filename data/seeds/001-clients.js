@@ -10,17 +10,15 @@ exports.seed = function(knex) {
             first_name: 'Cam',
             last_name: 'MacD',
             email: 'cam@cam.com',
-            username: 'cammac725',
-            password: 'elrock',
+            DOB: "Dec 15, 1960",
+            occupation: "software developer",
           },
           {
             first_name: 'Lexie',
             last_name: 'Kauffman',
             email: 'lex@lex.com',
-            username: 'lex',
-            password: 'kauff',
+            occupation: "pilates instructor",            
           },
-          
         ]);
     });
 };
