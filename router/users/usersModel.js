@@ -3,8 +3,9 @@ const db = require('../../database/dbconfig');
 module.exports = {
   getUsers,
   getById,
-  update,
-  remove
+  updateUser,
+  addUser,
+  removeUser
 }
 
 function getUsers() {
@@ -12,13 +13,29 @@ function getUsers() {
 }
 
 function getById(id) {
-  return db("users/:id")
+  return db("users")
+    .where({ "users.id": id })
+    .first()
+    .select(
+      'users.name'
+    )
 }
 
-function update() {
-
+async function addUser(user) {
+  const [id] = await db('users').insert(user, 'id')
+  return db('users')
+    .where({ id })
+    .first()
 }
 
-function remove() {
-  
+function updateUser(id, changes) {
+return db('users')
+  .where({ id })
+  .update(changes)
 }
+
+function removeUser(id) {
+  return db('users')
+    .where ({ id })
+    .del()
+  }
