@@ -10,7 +10,7 @@ const server = express();
 server.use(express.json());
 server.use(helmet());
 server.use(cors());
-server.use("/api/users", userRouter);
+server.use("/api/clients", userRouter);
 server.use("/api/matExers", matExerRouter);
 server.use ("/api/refExers", refExerRouter);
 

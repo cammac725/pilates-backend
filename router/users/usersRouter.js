@@ -1,27 +1,27 @@
 const router = require("express").Router();
 
-const Users = require('./usersModel');
+const Clients = require('./usersModel');
 
 router.get('/', (req, res) => {
-  Users.getUsers()
-    .then(users => {
-      res.status(200).json(users)
+  Clients.getUsers()
+    .then(clients => {
+      res.status(200).json(clients)
     })
     .catch(err => {
       res
         .status(500)
-        .json({ message: "Cannot retrieve users from database." })
+        .json({ message: "Cannot retrieve clients from database." })
     })
 })
 
-router.get('/:id' (req, res) => {
-  Users.getById(req.params.id)
-    .then(user => {
-      res.json(user)
+router.get('/:id', (req, res) => {
+  Clients.getById(req.params.id)
+    .then(client => {
+      res.json(client)
     })
     .catch(err => {
       res.status(500)
-      .json({ meassage: "Cannot find the user with that id" })
+      .json({ meassage: "Cannot find the client with that id" })
     })
 })
 
