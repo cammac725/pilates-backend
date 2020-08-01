@@ -1,41 +1,36 @@
 const db = require('../../data/dbconfig');
 
 module.exports = {
-  getUsers,
-  getById,
-  updateUser,
-  addUser,
-  removeUser
+  getClients,
+  getClientById,
+  updateClient,
+  addClient,
+  removeClient,
 }
 
-function getUsers() {
+function getClients() {
   return db("clients")
 }
 
-function getById(id) {
+function getClientById(id) {
   return db("clients")
     .where({ "clients.id": id })
-    .first()
-    .select(
-      'clients.first_name'
-    )
+    .first();
 }
 
-async function addUser(user) {
-  const [id] = await db('clients').insert(user, 'id')
-  return db('clients')
-    .where({ id })
-    .first()
+async function addClient(client) {
+  const [id] = await db('clients').insert(client, 'id')
+  return getClientById(id);
 }
 
-function updateUser(id, changes) {
+function updateClient(id, changes) {
 return db('clients')
   .where({ id })
-  .update(changes)
+  .update(changes);
 }
 
-function removeUser(id) {
+function removeClient(id) {
   return db('clients')
     .where ({ id })
-    .del()
+    .del();
   }
