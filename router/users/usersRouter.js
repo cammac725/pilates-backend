@@ -39,16 +39,14 @@ router.put('/:id', (req, res) => {
 
 router.post('/', async (req, res) => {
   const client = req.body;
-  if (client.first_name) {
-    try {
-      const added = await Clients.addClient(client)
-      res.status(201).json(added)
-    } catch (err) {
-      res.status(500).json({ message: 'Could not add the client' })
-    }
-  } else {
-    res.status(400).json({ message: 'Please provide the name of the client' })
+  
+  try {
+    const added = await Clients.addClient(client)
+    res.status(201).json(added)
+  } catch (err) {
+    res.status(500).json({ message: 'Could not add the client' })
   }
+  
 })
 
 router.delete('/:id', async (req, res) => {
