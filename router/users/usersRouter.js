@@ -27,14 +27,15 @@ router.get('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const changes = req.body;
-  Clients.update(req.params.id, changes)
-    .then(updatedClient => {
-      res.json({ updatedClient })
+  Clients.updateClient(req.params.id, changes)
+    .then((updatedClient) => {
+      res.json({ updatedClient });
     })
-    .catch(err => {
-      res.status(500)
-      .json({ message: "Cannot update the client with that id" })
-    })
+    .catch((err) => {
+      res
+        .status(500)
+        .json({ message: "Cannot update the client with that id" });
+    });
 })
 
 router.post('/', async (req, res) => {
